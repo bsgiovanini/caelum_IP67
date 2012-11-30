@@ -10,4 +10,6 @@
 
 @interface BSGListaContatosViewController : UITableViewController
 
+@property (weak) NSMutableArray* contatos;
+
 @end

@@ -14,12 +14,16 @@
 
 @synthesize window = _window;
 
+@synthesize contatos = _contatos;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+    self.contatos = [[NSMutableArray alloc] init];
     
     BSGListaContatosViewController * lista = [[BSGListaContatosViewController alloc] init];
+    
+    lista.contatos = self.contatos;
     
     UINavigationController * nav = [[UINavigationController alloc ] initWithRootViewController:lista];
     

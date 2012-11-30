@@ -32,40 +32,69 @@
     
     self = [super init];
     
+    
+    
     if(self) {
-        self.contatos = [[NSMutableArray alloc] init];
+        
+        self.navigationItem.title = @"Cadastro";
+        UIBarButtonItem * cancelar = 
+        [[UIBarButtonItem alloc ] initWithTitle:@"Cancela" style:UIBarButtonItemStylePlain target:self action: @selector(escondeFormulario)];
+        
+        UIBarButtonItem * cadastrar = 
+        [[UIBarButtonItem alloc ] initWithTitle:@"Cadastra" style:UIBarButtonItemStylePlain target:self action: @selector(cadastraContato)];
+        
+        self.navigationItem.leftBarButtonItem = 
+            cancelar;
+        self.navigationItem.rightBarButtonItem = cadastrar;
     }
+    
+    
+    
     
     return self;
     
     
 }
 
-- (IBAction) cadastraContato: (id)sender {
-    
-    
-    
+- (void) escondeFormulario {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(BSGContato*) pegaDadosDoFormulario {
     BSGContato * contato = [[BSGContato alloc] init];
     contato.nome = self.txtNome.text;
     contato.telefone = self.txtTel.text;
     contato.email = self.txtEmail.text;
     contato.endereco = self.txtEnd.text;
     contato.site = self.txtSite.text;
+    return contato;
+}
+
+
+
+- (void) cadastraContato {
     
     
-    //diz para view para que qualquer que for o firstResponder abdicar de ser e o teclado desaparecer
-    [self.view endEditing:YES];
+    
+    BSGContato * contato = [self pegaDadosDoFormulario];
     
     [self.contatos addObject:contato];
+    
+    [self escondeFormulario];
+    
+    //diz para view para que qualquer que for o firstResponder abdicar de ser e o teclado desaparecer
+    //[self.view endEditing:YES];
+    
+    
     
     NSLog(@"Dados do contato: %@", self.contatos);
     
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Cadastro realizado com sucesso" message:@"Isso e um UIAlertView" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
     
-    BSGListaContatosViewController * lista = [[BSGListaContatosViewController alloc] init];
+    
     //Forma nova de navegar entre controllers
-    [self presentViewController:lista animated:YES completion: nil];
+    //[self dismissModalViewControllerAnimated:YES];
     
        
 }

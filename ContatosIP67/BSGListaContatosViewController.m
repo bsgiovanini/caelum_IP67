@@ -8,8 +8,45 @@
 
 #import "BSGListaContatosViewController.h"
 #import "BSGFormularioContatoViewController.h"
+#import "BSGContato.h"
 
 @implementation BSGListaContatosViewController
+
+@synthesize contatos = _contatos;
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.contatos count];
+}
+
+- (UITableViewCell*) tableView: (UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString * cellIdent = @"Cell";
+    
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdent];
+    if(!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault)
+                                      reuseIdentifier:cellIdent];
+        
+    }
+    
+    BSGContato * contato = [self.contatos objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = contato.nome;
+    
+    return cell;
+    
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    NSLog(@"Numero de contatos na lista %d", [self.contatos count]);
+    [self.tableView reloadData];
+    
+    
+}
 
 - (id) init {
     self = [super init];
@@ -29,8 +66,14 @@
     
     BSGFormularioContatoViewController * form = [[BSGFormularioContatoViewController alloc] init];
     
+    form.contatos = self.contatos;
+    
+    UINavigationController * nav = [[UINavigationController alloc ] initWithRootViewController:form];
+    
+    
+    
     //Esta forma será deprecada no ios 6
-    [self presentModalViewController:form animated:YES];
+    [self presentModalViewController:nav animated:YES];
     //UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Exibir Formulario" message:@"Isso e um UIAlertView" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     //[alert show];
 }

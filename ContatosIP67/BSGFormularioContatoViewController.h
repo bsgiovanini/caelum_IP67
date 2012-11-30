@@ -10,7 +10,7 @@
 
 @interface BSGFormularioContatoViewController : UIViewController
 
-@property (strong) NSMutableArray* contatos;
+
 
 @property (weak) IBOutlet UITextField* txtNome;
 
@@ -22,8 +22,12 @@
 
 @property (weak) IBOutlet UITextField* txtSite;
 
-- (IBAction) cadastraContato: (id)sender; 
+@property (weak) NSMutableArray* contatos;
+
+- (void) cadastraContato; 
 
 - (IBAction) proximoElemento: (UITextField*)sender; 
+
+- (void) escondeFormulario;
 
 @end
