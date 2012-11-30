@@ -7,25 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D9283861667A188004DB06B /* BSGListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9283851667A188004DB06B /* BSGListaContatosViewController.m */; };
 		0D92E1C71666351700E63DDC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D92E1C61666351700E63DDC /* UIKit.framework */; };
 		0D92E1C91666351700E63DDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D92E1C81666351700E63DDC /* Foundation.framework */; };
 		0D92E1CB1666351700E63DDC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D92E1CA1666351700E63DDC /* CoreGraphics.framework */; };
 		0D92E1D11666351700E63DDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D92E1CF1666351700E63DDC /* InfoPlist.strings */; };
 		0D92E1D31666351700E63DDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92E1D21666351700E63DDC /* main.m */; };
 		0D92E1D71666351700E63DDC /* BSGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92E1D61666351700E63DDC /* BSGAppDelegate.m */; };
+		0D92E1E01666380000E63DDC /* BSGFormularioContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92E1DE1666380000E63DDC /* BSGFormularioContatoViewController.m */; };
+		0D92E1E31666390800E63DDC /* BSGFormularioContatoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D92E1E21666390800E63DDC /* BSGFormularioContatoViewController.xib */; };
+		0D92E1EB16665A8F00E63DDC /* BSGContato.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92E1EA16665A8F00E63DDC /* BSGContato.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D9283841667A188004DB06B /* BSGListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSGListaContatosViewController.h; sourceTree = "<group>"; };
+		0D9283851667A188004DB06B /* BSGListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSGListaContatosViewController.m; sourceTree = "<group>"; };
 		0D92E1C21666351700E63DDC /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D92E1C61666351700E63DDC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0D92E1C81666351700E63DDC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0D92E1CA1666351700E63DDC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		0D92E1CE1666351700E63DDC /* ContatosIP67-Info.plist */ = {isa = PBXFileReference; path = "ContatosIP67-Info.plist"; sourceTree = "<group>"; };
+		0D92E1CE1666351700E63DDC /* ContatosIP67-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContatosIP67-Info.plist"; sourceTree = "<group>"; };
 		0D92E1D01666351700E63DDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0D92E1D21666351700E63DDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0D92E1D41666351700E63DDC /* ContatosIP67-Prefix.pch */ = {isa = PBXFileReference; path = "ContatosIP67-Prefix.pch"; sourceTree = "<group>"; };
-		0D92E1D51666351700E63DDC /* BSGAppDelegate.h */ = {isa = PBXFileReference; path = BSGAppDelegate.h; sourceTree = "<group>"; };
+		0D92E1D41666351700E63DDC /* ContatosIP67-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContatosIP67-Prefix.pch"; sourceTree = "<group>"; };
+		0D92E1D51666351700E63DDC /* BSGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSGAppDelegate.h; sourceTree = "<group>"; };
 		0D92E1D61666351700E63DDC /* BSGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSGAppDelegate.m; sourceTree = "<group>"; };
+		0D92E1DD1666380000E63DDC /* BSGFormularioContatoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSGFormularioContatoViewController.h; sourceTree = "<group>"; };
+		0D92E1DE1666380000E63DDC /* BSGFormularioContatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSGFormularioContatoViewController.m; sourceTree = "<group>"; };
+		0D92E1E21666390800E63DDC /* BSGFormularioContatoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSGFormularioContatoViewController.xib; sourceTree = "<group>"; };
+		0D92E1E916665A8F00E63DDC /* BSGContato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSGContato.h; sourceTree = "<group>"; };
+		0D92E1EA16665A8F00E63DDC /* BSGContato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSGContato.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +85,13 @@
 			children = (
 				0D92E1D51666351700E63DDC /* BSGAppDelegate.h */,
 				0D92E1D61666351700E63DDC /* BSGAppDelegate.m */,
+				0D92E1DD1666380000E63DDC /* BSGFormularioContatoViewController.h */,
+				0D92E1DE1666380000E63DDC /* BSGFormularioContatoViewController.m */,
+				0D9283841667A188004DB06B /* BSGListaContatosViewController.h */,
+				0D9283851667A188004DB06B /* BSGListaContatosViewController.m */,
+				0D92E1E916665A8F00E63DDC /* BSGContato.h */,
+				0D92E1EA16665A8F00E63DDC /* BSGContato.m */,
+				0D92E1E21666390800E63DDC /* BSGFormularioContatoViewController.xib */,
 				0D92E1CD1666351700E63DDC /* Supporting Files */,
 			);
 			path = ContatosIP67;
@@ -142,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D92E1D11666351700E63DDC /* InfoPlist.strings in Resources */,
+				0D92E1E31666390800E63DDC /* BSGFormularioContatoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +173,9 @@
 			files = (
 				0D92E1D31666351700E63DDC /* main.m in Sources */,
 				0D92E1D71666351700E63DDC /* BSGAppDelegate.m in Sources */,
+				0D92E1E01666380000E63DDC /* BSGFormularioContatoViewController.m in Sources */,
+				0D92E1EB16665A8F00E63DDC /* BSGContato.m in Sources */,
+				0D9283861667A188004DB06B /* BSGListaContatosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +279,7 @@
 				0D92E1DC1666351700E63DDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
