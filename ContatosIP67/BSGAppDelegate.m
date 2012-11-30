@@ -7,6 +7,8 @@
 //
 
 #import "BSGAppDelegate.h"
+#import "BSGFormularioContatoViewController.h"
+#import "BSGListaContatosViewController.h"
 
 @implementation BSGAppDelegate
 
@@ -15,8 +17,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
+    BSGListaContatosViewController * lista = [[BSGListaContatosViewController alloc] init];
+    
+    UINavigationController * nav = [[UINavigationController alloc ] initWithRootViewController:lista];
+    
+    //BSGFormularioContatoViewController * form = [[BSGFormularioContatoViewController alloc] init];
+    
+    [self.window setRootViewController:nav];
+    
+    NSLog(@"lauchOptions %@", launchOptions);
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor grayColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
