@@ -26,7 +26,27 @@
 
 @synthesize txtSite;
 
-@synthesize contatos = _contatos;
+@synthesize contato;
+
+@synthesize delegate = _delegate;
+
+- (id) initWithContato: (BSGContato *) _contato {
+    
+    self = [super init];
+    
+    if (self) {
+        self.contato = _contato;
+        
+        UIBarButtonItem * confirmar = 
+        [[UIBarButtonItem alloc ] initWithTitle:@"Confirma" style:UIBarButtonItemStylePlain target:self action: @selector(atualizaContato)];
+        
+        self.navigationItem.rightBarButtonItem = confirmar;
+    }
+
+    return self;
+    
+
+}
 
 - (id)init {
     
@@ -61,13 +81,17 @@
 }
 
 -(BSGContato*) pegaDadosDoFormulario {
-    BSGContato * contato = [[BSGContato alloc] init];
-    contato.nome = self.txtNome.text;
-    contato.telefone = self.txtTel.text;
-    contato.email = self.txtEmail.text;
-    contato.endereco = self.txtEnd.text;
-    contato.site = self.txtSite.text;
-    return contato;
+    
+    if (!self.contato) {
+        self.contato = [[BSGContato alloc] init];
+    }
+    
+    self.contato.nome = self.txtNome.text;
+    self.contato.telefone = self.txtTel.text;
+    self.contato.email = self.txtEmail.text;
+    self.contato.endereco = self.txtEnd.text;
+    self.contato.site = self.txtSite.text;
+    return self.contato;
 }
 
 
@@ -76,20 +100,20 @@
     
     
     
-    BSGContato * contato = [self pegaDadosDoFormulario];
+    BSGContato * meucontato = [self pegaDadosDoFormulario];
     
-    [self.contatos addObject:contato];
     
     [self escondeFormulario];
+    
+    if (self.delegate) {
+        [self.delegate contatoAdicionado:meucontato];
+    }
     
     //diz para view para que qualquer que for o firstResponder abdicar de ser e o teclado desaparecer
     //[self.view endEditing:YES];
     
     
-    
-    NSLog(@"Dados do contato: %@", self.contatos);
-    
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Cadastro realizado com sucesso" message:@"Isso e um UIAlertView" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle: contato.nome message:@"Cadastro realizado com sucesso" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
     
     
@@ -97,6 +121,15 @@
     //[self dismissModalViewControllerAnimated:YES];
     
        
+}
+
+- (void) atualizaContato {
+    BSGContato * contato = [self pegaDadosDoFormulario];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (self.delegate) {
+        [self.delegate contatoAtualizado:contato];
+    }
 }
 
 - (IBAction)proximoElemento:(UITextField*)sender {
@@ -131,6 +164,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (self.contato) {
+        
+    
+        self.txtNome.text = self.contato.nome;
+        self.txtTel.text = self.contato.telefone;
+        self.txtEnd.text = self.contato.endereco;
+        self.txtSite.text = self.contato.site;
+        self.txtEmail.text = self.contato.email;
+    }    
+        
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -145,5 +190,7 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
 
 @end

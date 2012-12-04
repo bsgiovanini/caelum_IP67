@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BSGListaContatosProtocol.h"
+#import "BSGContato.h"
 
-@interface BSGListaContatosViewController : UITableViewController
+@interface BSGListaContatosViewController : UITableViewController <BSGListaContatosProtocol, UIActionSheetDelegate>
 
 @property (weak) NSMutableArray* contatos;
+
+@property NSInteger linhaDestaque;
+
+@property (weak) BSGContato* contatoSelecionado;
 
 @end

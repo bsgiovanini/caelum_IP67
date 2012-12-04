@@ -14,6 +14,10 @@
 
 @synthesize contatos = _contatos;
 
+@synthesize linhaDestaque = _linhaDestaque;
+
+@synthesize contatoSelecionado = _contatoSelecionado;
+
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -48,6 +52,101 @@
     
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    
+    if (self.linhaDestaque >= 0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.linhaDestaque inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+        
+        self.linhaDestaque = -1;
+        
+    }
+}
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    UILongPressGestureRecognizer * gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(exibeMaisAcoes:)];
+    [self.tableView addGestureRecognizer:gr];
+    
+}
+
+- (void) exibeMaisAcoes: (UIGestureRecognizer*)gr {
+    if(gr.state == UIGestureRecognizerStateBegan) {
+        CGPoint ponto = [gr locationInView:self.tableView];
+        NSIndexPath * ip = [self.tableView indexPathForRowAtPoint:ponto];
+        BSGContato * contato = [self.contatos objectAtIndex: ip.row];
+        
+        self.contatoSelecionado = contato;
+        
+        UIActionSheet * as = [[UIActionSheet alloc] initWithTitle:contato.nome delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Ligar",@"Enviar Email", @"Site", @"Mapa", nil];
+        
+        [as showInView:self.view];
+    }
+}
+
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            [self ligar];
+            break;
+        case 1:
+            [self enviarEmail];
+            break;
+        case 2:
+            [self abrirSite];
+            break;
+        case 3:
+            [self mostrarMapa];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void) ligar {
+    NSLog(@"ligando...");
+}
+
+- (void) enviarEmail {
+    NSLog(@"email...");
+}
+
+- (void) abrirSite {
+    NSLog(@"site...");
+}
+
+- (void) mostrarMapa {
+    NSLog(@"mapa...");
+}
+
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.contatos removeObjectAtIndex:indexPath.row];
+        
+        NSArray * linhas = [NSArray arrayWithObject: indexPath];
+        
+        [tableView deleteRowsAtIndexPaths:linhas withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BSGContato * contato = [self.contatos objectAtIndex:indexPath.row];
+    BSGFormularioContatoViewController * form = [[BSGFormularioContatoViewController alloc] initWithContato:contato];
+    
+        
+    [self.navigationController pushViewController:form animated:YES];
+
+    
+}
+
+
+
 - (id) init {
     self = [super init];
     
@@ -57,7 +156,10 @@
         UIBarButtonItem * button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(exibeFormulario)]; 
         
         self.navigationItem.rightBarButtonItem = button;
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
     }
+    
+    self.linhaDestaque = -1;
     return self;
 }
 
@@ -66,7 +168,7 @@
     
     BSGFormularioContatoViewController * form = [[BSGFormularioContatoViewController alloc] init];
     
-    form.contatos = self.contatos;
+    form.delegate = self;
     
     UINavigationController * nav = [[UINavigationController alloc ] initWithRootViewController:form];
     
@@ -76,6 +178,22 @@
     [self presentModalViewController:nav animated:YES];
     //UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Exibir Formulario" message:@"Isso e um UIAlertView" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     //[alert show];
+}
+
+-(void) contatoAdicionado:(BSGContato*)contato {
+    
+    [self.contatos addObject:contato];
+    NSLog(@"Contato Adicionado %d",[self.contatos indexOfObject:contato]);
+    
+    
+    self.linhaDestaque = [self.contatos indexOfObject:contato];
+    
+    [self.tableView reloadData];
+}
+
+- (void) contatoAtualizado:(BSGContato*)contato {
+    NSLog(@"Contato Atualizado %d",[self.contatos indexOfObject:contato]);
+    self.linhaDestaque = [self.contatos indexOfObject:contato];
 }
 
 @end

@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BSGContato.h"
+#import "BSGListaContatosProtocol.h"
 
 @interface BSGFormularioContatoViewController : UIViewController
 
+@property (strong) BSGContato* contato;
 
 
 @property (weak) IBOutlet UITextField* txtNome;
@@ -22,12 +25,15 @@
 
 @property (weak) IBOutlet UITextField* txtSite;
 
-@property (weak) NSMutableArray* contatos;
+
+@property (weak) id<BSGListaContatosProtocol> delegate;
 
 - (void) cadastraContato; 
 
 - (IBAction) proximoElemento: (UITextField*)sender; 
 
 - (void) escondeFormulario;
+
+- (id) initWithContato: (BSGContato*) _contato;
 
 @end

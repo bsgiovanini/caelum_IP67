@@ -14,5 +14,6 @@
 
 @property (strong) NSMutableArray* contatos;
 
+@property (strong) NSString * arquivoContato;
 
 @end

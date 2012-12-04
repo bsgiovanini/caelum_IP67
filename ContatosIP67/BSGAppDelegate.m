@@ -16,10 +16,33 @@
 
 @synthesize contatos = _contatos;
 
+@synthesize arquivoContato = _arquivoContato;
+
+- (id)init {
+    
+    self = [super init];
+    
+    NSArray * ud = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString * dd = [ud objectAtIndex: 0];
+    
+    self.arquivoContato = [NSString stringWithFormat:@"%@/Contatos",dd];
+    
+    return self;
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.contatos = [[NSMutableArray alloc] init];
+   
+    
+    NSLog(@"%@", self.arquivoContato);
+    self.contatos = [NSKeyedUnarchiver unarchiveObjectWithFile: self.arquivoContato];
+    if (!self.contatos) {
+         self.contatos = [[NSMutableArray alloc] init];
+    }
+    
     
     BSGListaContatosViewController * lista = [[BSGListaContatosViewController alloc] init];
     
@@ -44,8 +67,16 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
+
+
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    
+    
+    NSLog(self.arquivoContato);
+    
+    [NSKeyedArchiver archiveRootObject:self.contatos toFile:self.arquivoContato];
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

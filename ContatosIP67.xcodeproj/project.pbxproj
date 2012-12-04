@@ -37,6 +37,7 @@
 		0D92E1E21666390800E63DDC /* BSGFormularioContatoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSGFormularioContatoViewController.xib; sourceTree = "<group>"; };
 		0D92E1E916665A8F00E63DDC /* BSGContato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSGContato.h; sourceTree = "<group>"; };
 		0D92E1EA16665A8F00E63DDC /* BSGContato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSGContato.m; sourceTree = "<group>"; };
+		0DC5B902166E18B500571E93 /* BSGListaContatosProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSGListaContatosProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +94,7 @@
 				0D92E1EA16665A8F00E63DDC /* BSGContato.m */,
 				0D92E1E21666390800E63DDC /* BSGFormularioContatoViewController.xib */,
 				0D92E1CD1666351700E63DDC /* Supporting Files */,
+				0DC5B902166E18B500571E93 /* BSGListaContatosProtocol.h */,
 			);
 			path = ContatosIP67;
 			sourceTree = "<group>";
