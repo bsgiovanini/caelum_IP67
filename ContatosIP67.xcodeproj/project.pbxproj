@@ -17,6 +17,21 @@
 		0D92E1E01666380000E63DDC /* BSGFormularioContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92E1DE1666380000E63DDC /* BSGFormularioContatoViewController.m */; };
 		0D92E1E31666390800E63DDC /* BSGFormularioContatoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D92E1E21666390800E63DDC /* BSGFormularioContatoViewController.xib */; };
 		0D92E1EB16665A8F00E63DDC /* BSGContato.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92E1EA16665A8F00E63DDC /* BSGContato.m */; };
+		0DC104401670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1043D1670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.m */; };
+		0DC104411670C97E00BD54E1 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1043F1670C97E00BD54E1 /* TPKeyboardAvoidingTableView.m */; };
+		0DC2E5C3166F69900013ECDD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC2E5C2166F69900013ECDD /* MessageUI.framework */; };
+		0DC41B7E166F89FC007C9CBD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B75166F89FC007C9CBD /* Default.png */; };
+		0DC41B7F166F89FC007C9CBD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B76166F89FC007C9CBD /* Default@2x.png */; };
+		0DC41B80166F89FC007C9CBD /* gps.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B77166F89FC007C9CBD /* gps.png */; };
+		0DC41B81166F89FC007C9CBD /* gps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B78166F89FC007C9CBD /* gps@2x.png */; };
+		0DC41B82166F89FC007C9CBD /* lista-contatos.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B79166F89FC007C9CBD /* lista-contatos.png */; };
+		0DC41B83166F89FC007C9CBD /* lista-contatos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B7A166F89FC007C9CBD /* lista-contatos@2x.png */; };
+		0DC41B84166F89FC007C9CBD /* mapa-contatos.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B7B166F89FC007C9CBD /* mapa-contatos.png */; };
+		0DC41B85166F89FC007C9CBD /* mapa-contatos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B7C166F89FC007C9CBD /* mapa-contatos@2x.png */; };
+		0DC41B86166F89FC007C9CBD /* Vila Mariana.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B7D166F89FC007C9CBD /* Vila Mariana.gpx */; };
+		0DC41B8A166F8A51007C9CBD /* BSGContatosNoMapaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC41B88166F8A51007C9CBD /* BSGContatosNoMapaViewController.m */; };
+		0DC41B8B166F8A51007C9CBD /* BSGContatosNoMapaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B89166F8A51007C9CBD /* BSGContatosNoMapaViewController.xib */; };
+		0DC41B8D166F8AF1007C9CBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC41B8C166F8AF1007C9CBD /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +52,24 @@
 		0D92E1E21666390800E63DDC /* BSGFormularioContatoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSGFormularioContatoViewController.xib; sourceTree = "<group>"; };
 		0D92E1E916665A8F00E63DDC /* BSGContato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSGContato.h; sourceTree = "<group>"; };
 		0D92E1EA16665A8F00E63DDC /* BSGContato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSGContato.m; sourceTree = "<group>"; };
+		0DC1043C1670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		0DC1043D1670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		0DC1043E1670C97E00BD54E1 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		0DC1043F1670C97E00BD54E1 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		0DC2E5C2166F69900013ECDD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		0DC41B75166F89FC007C9CBD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		0DC41B76166F89FC007C9CBD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		0DC41B77166F89FC007C9CBD /* gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gps.png; sourceTree = "<group>"; };
+		0DC41B78166F89FC007C9CBD /* gps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gps@2x.png"; sourceTree = "<group>"; };
+		0DC41B79166F89FC007C9CBD /* lista-contatos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lista-contatos.png"; sourceTree = "<group>"; };
+		0DC41B7A166F89FC007C9CBD /* lista-contatos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lista-contatos@2x.png"; sourceTree = "<group>"; };
+		0DC41B7B166F89FC007C9CBD /* mapa-contatos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapa-contatos.png"; sourceTree = "<group>"; };
+		0DC41B7C166F89FC007C9CBD /* mapa-contatos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapa-contatos@2x.png"; sourceTree = "<group>"; };
+		0DC41B7D166F89FC007C9CBD /* Vila Mariana.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Vila Mariana.gpx"; sourceTree = "<group>"; };
+		0DC41B87166F8A51007C9CBD /* BSGContatosNoMapaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BSGContatosNoMapaViewController.h; path = ../BSGContatosNoMapaViewController.h; sourceTree = "<group>"; };
+		0DC41B88166F8A51007C9CBD /* BSGContatosNoMapaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BSGContatosNoMapaViewController.m; path = ../BSGContatosNoMapaViewController.m; sourceTree = "<group>"; };
+		0DC41B89166F8A51007C9CBD /* BSGContatosNoMapaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BSGContatosNoMapaViewController.xib; path = ../BSGContatosNoMapaViewController.xib; sourceTree = "<group>"; };
+		0DC41B8C166F8AF1007C9CBD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0DC5B902166E18B500571E93 /* BSGListaContatosProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSGListaContatosProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC41B8D166F8AF1007C9CBD /* MapKit.framework in Frameworks */,
+				0DC2E5C3166F69900013ECDD /* MessageUI.framework in Frameworks */,
 				0D92E1C71666351700E63DDC /* UIKit.framework in Frameworks */,
 				0D92E1C91666351700E63DDC /* Foundation.framework in Frameworks */,
 				0D92E1CB1666351700E63DDC /* CoreGraphics.framework in Frameworks */,
@@ -57,6 +92,8 @@
 		0D92E1B71666351600E63DDC = {
 			isa = PBXGroup;
 			children = (
+				0DC41B8C166F8AF1007C9CBD /* MapKit.framework */,
+				0DC2E5C2166F69900013ECDD /* MessageUI.framework */,
 				0D92E1CC1666351700E63DDC /* ContatosIP67 */,
 				0D92E1C51666351700E63DDC /* Frameworks */,
 				0D92E1C31666351700E63DDC /* Products */,
@@ -84,6 +121,14 @@
 		0D92E1CC1666351700E63DDC /* ContatosIP67 */ = {
 			isa = PBXGroup;
 			children = (
+				0DC1043C1670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.h */,
+				0DC1043D1670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.m */,
+				0DC1043E1670C97E00BD54E1 /* TPKeyboardAvoidingTableView.h */,
+				0DC1043F1670C97E00BD54E1 /* TPKeyboardAvoidingTableView.m */,
+				0DC41B74166F89A0007C9CBD /* images */,
+				0DC41B87166F8A51007C9CBD /* BSGContatosNoMapaViewController.h */,
+				0DC41B88166F8A51007C9CBD /* BSGContatosNoMapaViewController.m */,
+				0DC41B89166F8A51007C9CBD /* BSGContatosNoMapaViewController.xib */,
 				0D92E1D51666351700E63DDC /* BSGAppDelegate.h */,
 				0D92E1D61666351700E63DDC /* BSGAppDelegate.m */,
 				0D92E1DD1666380000E63DDC /* BSGFormularioContatoViewController.h */,
@@ -108,6 +153,23 @@
 				0D92E1D41666351700E63DDC /* ContatosIP67-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0DC41B74166F89A0007C9CBD /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0DC41B75166F89FC007C9CBD /* Default.png */,
+				0DC41B76166F89FC007C9CBD /* Default@2x.png */,
+				0DC41B77166F89FC007C9CBD /* gps.png */,
+				0DC41B78166F89FC007C9CBD /* gps@2x.png */,
+				0DC41B79166F89FC007C9CBD /* lista-contatos.png */,
+				0DC41B7A166F89FC007C9CBD /* lista-contatos@2x.png */,
+				0DC41B7B166F89FC007C9CBD /* mapa-contatos.png */,
+				0DC41B7C166F89FC007C9CBD /* mapa-contatos@2x.png */,
+				0DC41B7D166F89FC007C9CBD /* Vila Mariana.gpx */,
+			);
+			name = images;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +225,16 @@
 			files = (
 				0D92E1D11666351700E63DDC /* InfoPlist.strings in Resources */,
 				0D92E1E31666390800E63DDC /* BSGFormularioContatoViewController.xib in Resources */,
+				0DC41B7E166F89FC007C9CBD /* Default.png in Resources */,
+				0DC41B7F166F89FC007C9CBD /* Default@2x.png in Resources */,
+				0DC41B80166F89FC007C9CBD /* gps.png in Resources */,
+				0DC41B81166F89FC007C9CBD /* gps@2x.png in Resources */,
+				0DC41B82166F89FC007C9CBD /* lista-contatos.png in Resources */,
+				0DC41B83166F89FC007C9CBD /* lista-contatos@2x.png in Resources */,
+				0DC41B84166F89FC007C9CBD /* mapa-contatos.png in Resources */,
+				0DC41B85166F89FC007C9CBD /* mapa-contatos@2x.png in Resources */,
+				0DC41B86166F89FC007C9CBD /* Vila Mariana.gpx in Resources */,
+				0DC41B8B166F8A51007C9CBD /* BSGContatosNoMapaViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +250,9 @@
 				0D92E1E01666380000E63DDC /* BSGFormularioContatoViewController.m in Sources */,
 				0D92E1EB16665A8F00E63DDC /* BSGContato.m in Sources */,
 				0D9283861667A188004DB06B /* BSGListaContatosViewController.m in Sources */,
+				0DC41B8A166F8A51007C9CBD /* BSGContatosNoMapaViewController.m in Sources */,
+				0DC104401670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				0DC104411670C97E00BD54E1 /* TPKeyboardAvoidingTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "BSGAppDelegate.h"
 #import "BSGFormularioContatoViewController.h"
 #import "BSGListaContatosViewController.h"
+#import "BSGContatosNoMapaViewController.h"
 
 @implementation BSGAppDelegate
 
@@ -48,11 +49,23 @@
     
     lista.contatos = self.contatos;
     
+    BSGContatosNoMapaViewController *contatosMapa = [[BSGContatosNoMapaViewController alloc] init];
+    
+    UITabBarController *tabController = [[UITabBarController alloc] init];
+    
     UINavigationController * nav = [[UINavigationController alloc ] initWithRootViewController:lista];
+    
+    UINavigationController * navmapa = [[UINavigationController alloc ] initWithRootViewController:contatosMapa];
+    
+    
+    
+    tabController.viewControllers = [NSArray arrayWithObjects: nav, navmapa, nil] ;
+    
+   
     
     //BSGFormularioContatoViewController * form = [[BSGFormularioContatoViewController alloc] init];
     
-    [self.window setRootViewController:nav];
+    [self.window setRootViewController:tabController];
     
     NSLog(@"lauchOptions %@", launchOptions);
     // Override point for customization after application launch.

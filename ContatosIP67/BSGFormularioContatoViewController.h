@@ -10,7 +10,8 @@
 #import "BSGContato.h"
 #import "BSGListaContatosProtocol.h"
 
-@interface BSGFormularioContatoViewController : UIViewController
+
+@interface BSGFormularioContatoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong) BSGContato* contato;
 
@@ -25,12 +26,20 @@
 
 @property (weak) IBOutlet UITextField* txtSite;
 
+@property (weak) IBOutlet UITextField* txtLat;
+
+@property (weak) IBOutlet UITextField* txtLong;
+
+@property (weak) IBOutlet UIButton* photoButton;
+
 
 @property (weak) id<BSGListaContatosProtocol> delegate;
 
 - (void) cadastraContato; 
 
 - (IBAction) proximoElemento: (UITextField*)sender; 
+
+- (IBAction)selecionaFoto:(id)sender; 
 
 - (void) escondeFormulario;
 

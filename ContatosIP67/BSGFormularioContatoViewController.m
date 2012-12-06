@@ -10,6 +10,7 @@
 #import "BSGContato.h"
 #import "BSGListaContatosViewController.h"
 
+
 @interface BSGFormularioContatoViewController ()
 
 @end
@@ -26,9 +27,15 @@
 
 @synthesize txtSite;
 
-@synthesize contato;
+@synthesize contato = _contato;
 
 @synthesize delegate = _delegate;
+
+@synthesize photoButton = _photoButton;
+
+@synthesize txtLat = _txtLat;
+
+@synthesize txtLong = _txtLong;
 
 - (id) initWithContato: (BSGContato *) _contato {
     
@@ -91,6 +98,10 @@
     self.contato.email = self.txtEmail.text;
     self.contato.endereco = self.txtEnd.text;
     self.contato.site = self.txtSite.text;
+    
+    if (self.photoButton.imageView.image)
+        self.contato.photo = self.photoButton.imageView.image;
+    
     return self.contato;
 }
 
@@ -113,7 +124,7 @@
     //[self.view endEditing:YES];
     
     
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle: contato.nome message:@"Cadastro realizado com sucesso" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle: meucontato.nome message:@"Cadastro realizado com sucesso" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
     
     
@@ -139,15 +150,39 @@
         [self.txtTel becomeFirstResponder];
     } else if (sender == self.txtTel) {
         [self.txtEmail becomeFirstResponder];
-        
     } else if (sender == self.txtEmail) {
         [self.txtEnd becomeFirstResponder];
     } else if (sender == self.txtEnd) {
-        [self.txtSite becomeFirstResponder];
-    } else if (sender == self.txtSite) {
+        [self.txtLat becomeFirstResponder];
+    } else if (sender == self.txtLat) {
+        [self.txtLong becomeFirstResponder];
+    } else if (sender == self.txtLong) {
         [self.txtSite resignFirstResponder];
     }
     
+}
+
+-(IBAction)selecionaFoto:(id)sender {
+    
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init ];
+    picker.allowsEditing = YES;
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+       
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"Escolha a foto" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Tirar Foto", nil];
+        [sheet showInView: self.view];
+        
+        
+        
+    } else {
+        
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.delegate = self;
+    }
+    
+    [self presentModalViewController:picker animated:YES];
+
 }
 
 
@@ -173,6 +208,10 @@
         self.txtEnd.text = self.contato.endereco;
         self.txtSite.text = self.contato.site;
         self.txtEmail.text = self.contato.email;
+        if(self.contato.photo)
+            [self.photoButton setImage:self.contato.photo forState:UIControlStateNormal];
+        
+        
     }    
         
     
@@ -191,6 +230,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *imagemSelecionada = [info valueForKey:UIImagePickerControllerEditedImage];
+    [self.photoButton setImage:imagemSelecionada forState: UIControlStateNormal];
+    [picker dismissModalViewControllerAnimated:YES];
+    
+}
 
 @end

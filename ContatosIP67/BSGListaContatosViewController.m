@@ -109,18 +109,49 @@
 
 - (void) ligar {
     NSLog(@"ligando...");
+    UIDevice* device = [UIDevice currentDevice];
+    if([device.model isEqualToString:@"iPhone"]) {
+        
+        NSString * num = [NSString stringWithFormat:@"tel:%@", self.contatoSelecionado.telefone]; 
+        [self abrirAplicativoComURL:num];
+    }
 }
 
 - (void) enviarEmail {
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController * msg = [[MFMailComposeViewController alloc] init];
+        msg.mailComposeDelegate = self ;
+        msg.toRecipients = [NSArray arrayWithObject: self.contatoSelecionado.email];
+        msg.subject = @"Caelum";
+        
+        [self presentViewController:msg animated:YES completion:nil];
+        
+    } else {
+        
+    }
     NSLog(@"email...");
 }
 
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
 - (void) abrirSite {
     NSLog(@"site...");
+    [self abrirAplicativoComURL:self.contatoSelecionado.site];
 }
 
 - (void) mostrarMapa {
     NSLog(@"mapa...");
+    NSString * url = [[NSString stringWithFormat:@"http://maps.google.com/maps?q=%@",self.contatoSelecionado.endereco] stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding] ;
+    [self abrirAplicativoComURL:url];
+    
+}
+
+- (void) abrirAplicativoComURL:(NSString *) urlStr {
+    [[UIApplication sharedApplication ] openURL: [NSURL URLWithString:urlStr]]; 
 }
 
 
@@ -145,12 +176,22 @@
     
 }
 
+#pragma mark -
+#pragma mark nice!
 
 
 - (id) init {
     self = [super init];
     
     if (self) {
+        
+        
+        UIImage * imageTabItem = [UIImage imageNamed:@"lista-contatos.png"];
+        
+        UITabBarItem * tabItem = [[UITabBarItem alloc] initWithTitle:@"Contatos" image:imageTabItem tag:0];
+        
+        self.tabBarItem = tabItem;
+        
         self.navigationItem.title = @"Contatos";
         
         UIBarButtonItem * button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(exibeFormulario)]; 

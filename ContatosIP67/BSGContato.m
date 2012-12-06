@@ -19,6 +19,7 @@
     self.email = [aDecoder decodeObjectForKey:@"email"] ;
     self.endereco = [aDecoder decodeObjectForKey:@"endereco"] ;
     self.site = [aDecoder decodeObjectForKey:@"site"] ;
+    self.photo = [aDecoder decodeObjectForKey:@"photo"];    
     }
     
     return self;
@@ -36,12 +37,15 @@
 
 @synthesize site = _site;
 
+@synthesize photo = _photo;
+
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.nome forKey:@"nome"];
     [aCoder encodeObject:self.telefone forKey:@"telefone"];
     [aCoder encodeObject:self.email forKey:@"email"];
     [aCoder encodeObject:self.endereco forKey:@"endereco"];
     [aCoder encodeObject:self.site forKey:@"site"];
+    [aCoder encodeObject:self.photo forKey:@"photo"];
 
 
     

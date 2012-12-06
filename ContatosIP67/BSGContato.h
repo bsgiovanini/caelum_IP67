@@ -20,5 +20,7 @@
 
 @property (strong) NSString * site;
 
+@property (strong) UIImage * photo;
+
 
 @end

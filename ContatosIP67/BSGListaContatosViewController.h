@@ -7,15 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MessageUI/MFMailComposeViewController.h>
 #import "BSGListaContatosProtocol.h"
 #import "BSGContato.h"
 
-@interface BSGListaContatosViewController : UITableViewController <BSGListaContatosProtocol, UIActionSheetDelegate>
+@interface BSGListaContatosViewController : UITableViewController <BSGListaContatosProtocol, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak) NSMutableArray* contatos;
 
 @property NSInteger linhaDestaque;
 
 @property (weak) BSGContato* contatoSelecionado;
+
+
 
 @end
