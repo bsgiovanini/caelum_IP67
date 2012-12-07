@@ -19,7 +19,9 @@
     self.email = [aDecoder decodeObjectForKey:@"email"] ;
     self.endereco = [aDecoder decodeObjectForKey:@"endereco"] ;
     self.site = [aDecoder decodeObjectForKey:@"site"] ;
-    self.photo = [aDecoder decodeObjectForKey:@"photo"];    
+    self.photo = [aDecoder decodeObjectForKey:@"photo"];   
+    self.latitude = [aDecoder decodeObjectForKey:@"latitude"];
+    self.longitude = [aDecoder decodeObjectForKey:@"longitude"];    
     }
     
     return self;
@@ -27,17 +29,37 @@
     
 }
 
-@synthesize nome = _nome;
+@dynamic nome;
 
-@synthesize telefone = _telefone;
+@dynamic telefone ;
 
-@synthesize email = _email;
+@dynamic email ;
 
-@synthesize endereco = _endereco;
+@dynamic endereco ;
 
-@synthesize site = _site;
+@dynamic site ;
 
-@synthesize photo = _photo;
+@synthesize photo = _photo ;
+
+@dynamic latitude ;
+
+@dynamic longitude ;
+
+
+- (CLLocationCoordinate2D) coordinate {
+    NSLog(@"%@", self.latitude);
+    NSLog(@"%@", self.longitude);
+    return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
+}
+
+- (NSString*) title {
+    return self.nome;
+}
+
+- (NSString*) subtitle {
+    return self.email;
+}
+
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.nome forKey:@"nome"];
@@ -46,8 +68,8 @@
     [aCoder encodeObject:self.endereco forKey:@"endereco"];
     [aCoder encodeObject:self.site forKey:@"site"];
     [aCoder encodeObject:self.photo forKey:@"photo"];
-
-
+    [aCoder encodeObject:self.longitude forKey:@"longitude"];
+    [aCoder encodeObject:self.latitude forKey:@"latitude"];
     
 }
 

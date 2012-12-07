@@ -16,4 +16,6 @@
 
 @property (strong) NSString * arquivoContato;
 
+@property (readonly, strong) NSManagedObjectContext *contexto;
+
 @end

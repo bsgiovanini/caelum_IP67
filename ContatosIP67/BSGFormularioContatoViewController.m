@@ -9,6 +9,8 @@
 #import "BSGFormularioContatoViewController.h"
 #import "BSGContato.h"
 #import "BSGListaContatosViewController.h"
+#import <CoreLocation/CLGeocoder.h>
+#import <CoreLocation/CLPlacemark.h>
 
 
 @interface BSGFormularioContatoViewController ()
@@ -36,6 +38,10 @@
 @synthesize txtLat = _txtLat;
 
 @synthesize txtLong = _txtLong;
+
+@synthesize iv = _iv;
+
+@synthesize contexto = _contexto;
 
 - (id) initWithContato: (BSGContato *) _contato {
     
@@ -90,7 +96,7 @@
 -(BSGContato*) pegaDadosDoFormulario {
     
     if (!self.contato) {
-        self.contato = [[BSGContato alloc] init];
+        self.contato = [NSEntityDescription insertNewObjectForEntityForName:@"Contato" inManagedObjectContext:self.contexto];
     }
     
     self.contato.nome = self.txtNome.text;
@@ -98,6 +104,8 @@
     self.contato.email = self.txtEmail.text;
     self.contato.endereco = self.txtEnd.text;
     self.contato.site = self.txtSite.text;
+    self.contato.latitude = [NSNumber numberWithFloat: [self.txtLat.text floatValue]];
+    self.contato.longitude =[NSNumber numberWithFloat: [self.txtLong.text floatValue]];
     
     if (self.photoButton.imageView.image)
         self.contato.photo = self.photoButton.imageView.image;
@@ -186,6 +194,24 @@
 }
 
 
+- (IBAction)localiza:(id)sender {
+    
+    [self.iv startAnimating];
+    
+    CLGeocoder *gc = [[CLGeocoder alloc]init];
+    [gc geocodeAddressString:self.txtEnd.text completionHandler:^(NSArray *results, NSError *error) {
+        
+        if ((error == nil) && ([results count] > 0)) {
+            CLPlacemark *r = [results objectAtIndex:0];
+            CLLocationCoordinate2D c = r.location.coordinate;
+            self.txtLat.text = [NSString stringWithFormat:@"%f", c.latitude];
+            self.txtLong.text = [NSString stringWithFormat:@"%f", c.longitude];
+        }
+        
+        [self.iv stopAnimating];
+    }];
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -208,6 +234,8 @@
         self.txtEnd.text = self.contato.endereco;
         self.txtSite.text = self.contato.site;
         self.txtEmail.text = self.contato.email;
+        self.txtLat.text = [self.contato.latitude stringValue];
+        self.txtLong.text = [self.contato.longitude stringValue];
         if(self.contato.photo)
             [self.photoButton setImage:self.contato.photo forState:UIControlStateNormal];
         

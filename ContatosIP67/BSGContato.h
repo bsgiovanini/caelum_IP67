@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MKAnnotation.h>
 
-@interface BSGContato : NSObject <NSCoding>
+@interface BSGContato : NSManagedObject <NSCoding, MKAnnotation>
 
 @property (strong) NSString * nome;
 
@@ -22,5 +23,16 @@
 
 @property (strong) UIImage * photo;
 
+@property (strong) NSNumber * latitude;
+
+@property (strong) NSNumber * longitude;
+
+@property (nonatomic,readonly) CLLocationCoordinate2D coordinate;
+
+@property (nonatomic, readonly, copy) NSString *title;
+
+@property (nonatomic, readonly, copy) NSString *subtitle;
+
+- (void) setCoordinate:(CLLocationCoordinate2D)newCoordinate;
 
 @end

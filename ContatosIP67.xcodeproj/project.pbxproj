@@ -19,6 +19,9 @@
 		0D92E1EB16665A8F00E63DDC /* BSGContato.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92E1EA16665A8F00E63DDC /* BSGContato.m */; };
 		0DC104401670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1043D1670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.m */; };
 		0DC104411670C97E00BD54E1 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1043F1670C97E00BD54E1 /* TPKeyboardAvoidingTableView.m */; };
+		0DC104441670E20F00BD54E1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC104431670E20F00BD54E1 /* CoreLocation.framework */; };
+		0DC254661672251C0041E196 /* Modelo_Contatos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DC254641672251C0041E196 /* Modelo_Contatos.xcdatamodeld */; };
+		0DC25469167225DF0041E196 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC25468167225DF0041E196 /* CoreData.framework */; };
 		0DC2E5C3166F69900013ECDD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC2E5C2166F69900013ECDD /* MessageUI.framework */; };
 		0DC41B7E166F89FC007C9CBD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B75166F89FC007C9CBD /* Default.png */; };
 		0DC41B7F166F89FC007C9CBD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC41B76166F89FC007C9CBD /* Default@2x.png */; };
@@ -56,6 +59,9 @@
 		0DC1043D1670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		0DC1043E1670C97E00BD54E1 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
 		0DC1043F1670C97E00BD54E1 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		0DC104431670E20F00BD54E1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0DC254651672251C0041E196 /* Modelo_Contatos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Modelo_Contatos.xcdatamodel; sourceTree = "<group>"; };
+		0DC25468167225DF0041E196 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0DC2E5C2166F69900013ECDD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		0DC41B75166F89FC007C9CBD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0DC41B76166F89FC007C9CBD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC25469167225DF0041E196 /* CoreData.framework in Frameworks */,
+				0DC104441670E20F00BD54E1 /* CoreLocation.framework in Frameworks */,
 				0DC41B8D166F8AF1007C9CBD /* MapKit.framework in Frameworks */,
 				0DC2E5C3166F69900013ECDD /* MessageUI.framework in Frameworks */,
 				0D92E1C71666351700E63DDC /* UIKit.framework in Frameworks */,
@@ -92,6 +100,9 @@
 		0D92E1B71666351600E63DDC = {
 			isa = PBXGroup;
 			children = (
+				0DC25468167225DF0041E196 /* CoreData.framework */,
+				0DC254641672251C0041E196 /* Modelo_Contatos.xcdatamodeld */,
+				0DC104431670E20F00BD54E1 /* CoreLocation.framework */,
 				0DC41B8C166F8AF1007C9CBD /* MapKit.framework */,
 				0DC2E5C2166F69900013ECDD /* MessageUI.framework */,
 				0D92E1CC1666351700E63DDC /* ContatosIP67 */,
@@ -253,6 +264,7 @@
 				0DC41B8A166F8A51007C9CBD /* BSGContatosNoMapaViewController.m in Sources */,
 				0DC104401670C97E00BD54E1 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				0DC104411670C97E00BD54E1 /* TPKeyboardAvoidingTableView.m in Sources */,
+				0DC254661672251C0041E196 /* Modelo_Contatos.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +371,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0DC254641672251C0041E196 /* Modelo_Contatos.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0DC254651672251C0041E196 /* Modelo_Contatos.xcdatamodel */,
+			);
+			currentVersion = 0DC254651672251C0041E196 /* Modelo_Contatos.xcdatamodel */;
+			path = Modelo_Contatos.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0D92E1B91666351600E63DDC /* Project object */;
 }

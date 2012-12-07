@@ -32,6 +32,10 @@
 
 @property (weak) IBOutlet UIButton* photoButton;
 
+@property (weak) IBOutlet UIActivityIndicatorView* iv;
+
+@property (weak) NSManagedObjectContext *contexto;
+
 
 @property (weak) id<BSGListaContatosProtocol> delegate;
 
@@ -39,7 +43,9 @@
 
 - (IBAction) proximoElemento: (UITextField*)sender; 
 
-- (IBAction)selecionaFoto:(id)sender; 
+- (IBAction)selecionaFoto:(id)sender;
+
+- (IBAction)localiza:(id)sender; 
 
 - (void) escondeFormulario;
 

@@ -18,6 +18,8 @@
 
 @synthesize contatoSelecionado = _contatoSelecionado;
 
+@synthesize contexto = _contexto;
+
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -210,6 +212,8 @@
     BSGFormularioContatoViewController * form = [[BSGFormularioContatoViewController alloc] init];
     
     form.delegate = self;
+    
+    form.contexto = self.contexto;
     
     UINavigationController * nav = [[UINavigationController alloc ] initWithRootViewController:form];
     

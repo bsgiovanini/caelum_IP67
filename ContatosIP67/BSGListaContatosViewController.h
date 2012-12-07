@@ -19,6 +19,8 @@
 
 @property (weak) BSGContato* contatoSelecionado;
 
+@property (weak) NSManagedObjectContext *contexto;
+
 
 
 @end
